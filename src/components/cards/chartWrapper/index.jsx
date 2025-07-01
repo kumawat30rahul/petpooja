@@ -26,7 +26,9 @@ const ChartWrapper = ({ label, children, tabs, childrenHeight }) => {
       </div>
       <div
         hidden={!children}
-        className={`p-4 ${childrenHeight ? "overflow-y-scroll" : ""}`}
+        className={`${
+          childrenHeight ? "overflow-y-scroll" : "overflow-hidden"
+        }`}
         style={{
           height: childrenHeight,
         }}

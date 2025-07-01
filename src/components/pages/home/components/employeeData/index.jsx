@@ -1,5 +1,10 @@
+import { Eye } from "lucide-react";
 import ChartWrapper from "../../../../cards/chartWrapper";
+import ChecklistCard from "../../../../cards/checklistCard";
 import TaskCard from "../../../../cards/taskCard";
+import WorkFlowCard from "../../../../cards/workflowCard";
+import BarChart from "../../../../charts/barChart";
+import DynamicDataTable from "../../../../uiComponents/dataTable";
 
 const EmployeeData = () => {
   const workAllocatedTabs = [
@@ -14,6 +19,21 @@ const EmployeeData = () => {
     {
       label: "Forms 10",
       value: "forms",
+    },
+  ];
+
+  const employeeProgressTabs = [
+    {
+      label: "Tasks 10",
+      value: "tasks",
+    },
+    {
+      label: "Issues 10",
+      value: "issues",
+    },
+    {
+      label: "Workflows 10",
+      value: "workflows",
     },
   ];
 
@@ -59,14 +79,196 @@ const EmployeeData = () => {
       id: 48373,
     },
   ];
+
+  const employeeWorkProgressColumns = [
+    { key: "name", label: "Name", align: "left" },
+    { key: "department", label: "Department", align: "left" },
+    { key: "assigned", label: "Assigned", align: "center" },
+    { key: "ongoing", label: "Ongoing", align: "center" },
+    { key: "overdue", label: "Overdue", align: "center" },
+    { key: "completed", label: "Completed", align: "center" },
+  ];
+
+  const employeeWorkProgressData = [
+    {
+      name: "Anita",
+      department: "IT Services",
+      assigned: 90,
+      ongoing: 90,
+      overdue: 90,
+      completed: "90%",
+    },
+    {
+      name: "Rahul",
+      department: "Human Resources",
+      assigned: 31,
+      ongoing: 31,
+      overdue: 31,
+      completed: "31%",
+    },
+    {
+      name: "Priya",
+      department: "Sales Division",
+      assigned: 45,
+      ongoing: 45,
+      overdue: 45,
+      completed: "45%",
+    },
+    {
+      name: "Vikram",
+      department: "Research and Development",
+      assigned: 79,
+      ongoing: 79,
+      overdue: 79,
+      completed: "79%",
+    },
+    {
+      name: "Priya",
+      department: "Sales Division",
+      assigned: 45,
+      ongoing: 45,
+      overdue: 45,
+      completed: "45%",
+    },
+    {
+      name: "Vikram",
+      department: "Research and Development",
+      assigned: 79,
+      ongoing: 79,
+      overdue: 79,
+      completed: "79%",
+    },
+    {
+      name: "Priya",
+      department: "Sales Division",
+      assigned: 45,
+      ongoing: 45,
+      overdue: 45,
+      completed: "45%",
+    },
+    {
+      name: "Vikram",
+      department: "Research and Development",
+      assigned: 79,
+      ongoing: 79,
+      overdue: 79,
+      completed: "79%",
+    },
+    {
+      name: "Priya",
+      department: "Sales Division",
+      assigned: 45,
+      ongoing: 45,
+      overdue: 45,
+      completed: "45%",
+    },
+    {
+      name: "Vikram",
+      department: "Research and Development",
+      assigned: 79,
+      ongoing: 79,
+      overdue: 79,
+      completed: "79%",
+    },
+    {
+      name: "Priya",
+      department: "Sales Division",
+      assigned: 45,
+      ongoing: 45,
+      overdue: 45,
+      completed: "45%",
+    },
+    {
+      name: "Vikram",
+      department: "Research and Development",
+      assigned: 79,
+      ongoing: 79,
+      overdue: 79,
+      completed: "79%",
+    },
+  ];
+
+  const workflowsData = [
+    {
+      title: "Stock Control Strategies",
+      icon: <Eye />,
+      data: [
+        { title: "Responses", value: 47 },
+        { title: "Tasks", value: 22 },
+      ],
+    },
+    {
+      title: "How to Handle Inventory",
+      icon: <Eye />,
+      data: [
+        { title: "Responses", value: 23 },
+        { title: "Tasks", value: 15 },
+      ],
+    },
+    {
+      title: "Inventory Management Tips",
+      icon: <Eye />,
+      data: [
+        { title: "Responses", value: 56 },
+        { title: "Tasks", value: 30 },
+      ],
+    },
+    {
+      title: "Managing Your Stock Effectively",
+      icon: <Eye />,
+      data: [
+        { title: "Responses", value: 89 },
+        { title: "Tasks", value: 5 },
+      ],
+    },
+    {
+      title: "Optimizing Your Inventory",
+      icon: <Eye />,
+      data: [
+        { title: "Responses", value: 89 },
+        { title: "Tasks", value: 5 },
+      ],
+    },
+    {
+      title: "Stock Management Techniques",
+      icon: <Eye />,
+      data: [
+        { title: "Responses", value: 89 },
+        { title: "Tasks", value: 5 },
+      ],
+    },
+  ];
+
+  const checklistCardData = [
+    {
+      title: "Make Shift and Assign",
+      description:
+        "Assign Individuals to specific shifts based on availability and role requirements",
+    },
+    {
+      title: "Menu Creation",
+      description:
+        "Update the menu to show the dishes and their ingredients clearly. Point out any new cooking methods or dietary options.",
+    },
+    {
+      title: "Team Meeting Preparation",
+      description:
+        "Prepare agenda and materials for the upcoming team meeting.",
+    },
+    {
+      title: "Client Follow-up",
+      description: "Follow up with clients regarding their recent inquiries.",
+    },
+  ];
+
   return (
-    <div>
+    <>
       <ChartWrapper
         label={"Work Allocated"}
         tabs={workAllocatedTabs}
         childrenHeight="300px"
       >
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-6 gap-4 p-4">
           {workAllocatedData.map((item, index) => (
             <div
               className={`col-span-6 sm:col-span-3 ${
@@ -81,7 +283,48 @@ const EmployeeData = () => {
           ))}
         </div>
       </ChartWrapper>
-    </div>
+      <ChartWrapper
+        label={"Employee Wise Progress"}
+        tabs={employeeProgressTabs}
+        childrenHeight="300px"
+      >
+        <DynamicDataTable
+          columns={employeeWorkProgressColumns}
+          rows={employeeWorkProgressData}
+        />
+      </ChartWrapper>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <ChartWrapper label={"Overdue Tasks"} childrenHeight="300px">
+          <div className="flex flex-col gap-4 p-4">
+            {checklistCardData.map((item, index) => (
+              <ChecklistCard data={item} />
+            ))}
+          </div>
+        </ChartWrapper>
+        <ChartWrapper label={"Workflows"} childrenHeight="300px">
+          <div className="p-4 h-full w-full">
+            <BarChart />
+          </div>
+        </ChartWrapper>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <ChartWrapper label={"Overdue Tasks"} childrenHeight="300px">
+          <DynamicDataTable
+            columns={employeeWorkProgressColumns}
+            rows={employeeWorkProgressData}
+          />
+        </ChartWrapper>
+        <ChartWrapper label={"Workflows"} childrenHeight="300px">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 p-4">
+            {workflowsData.map((item, index) => (
+              <div key={item.value}>
+                <WorkFlowCard data={item} />
+              </div>
+            ))}
+          </div>
+        </ChartWrapper>
+      </div>
+    </>
   );
 };
 
