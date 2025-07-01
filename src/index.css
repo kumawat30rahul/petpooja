@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: oklch(
+    0.55 0.15 142
+  ); /* Green primary color (logo, buttons) */
+  --color-primary-hover: oklch(
+    0.5 0.15 142
+  ); /* Darker green for hover states */
+  --color-primary-light: oklch(0.95 0.05 142); /* Very light green background */
+
+  /* Secondary Colors */
+  --color-secondary: oklch(0.6 0.12 220); /* Blue color (tasks icon) */
+  --color-secondary-2: oklch(0.9662 0.0034 247.86);
+  --color-secondary-light: oklch(0.92 0.05 220); /* Light blue background */
+
+  /* Accent Colors */
+  --color-accent-orange: oklch(
+    0.7 0.15 60
+  ); /* Orange/amber color (ongoing status) */
+  --color-accent-orange-light: oklch(
+    0.95 0.05 60
+  ); /* Light orange background */
+  --color-accent-purple: oklch(0.6 0.12 280); /* Purple color (forms section) */
+  --color-accent-purple-light: oklch(
+    0.92 0.05 280
+  ); /* Light purple background */
+
+  /* Status Colors */
+  --color-success: oklch(0.55 0.15 142); /* Green for completed items */
+  --color-warning: oklch(0.7 0.15 60); /* Orange for ongoing/pending */
+  --color-danger: oklch(0.6 0.18 20); /* Red for overdue/issues */
+  --color-info: oklch(0.6 0.12 220); /* Blue for information */
+
+  /* Neutral Colors */
+  --color-background: oklch(0.98 0.005 180); /* Main background */
+  --color-surface: oklch(1 0 0); /* White surface color */
+  --color-surface-hover: oklch(0.96 0.005 180); /* Light gray hover */
+
+  /* Text Colors */
+  --color-text-primary: oklch(0.2 0.02 240); /* Dark text */
+  --color-text-secondary: oklch(0.5 0.02 240); /* Medium gray text */
+  --color-text-muted: oklch(0.65 0.02 240); /* Light gray text */
+  --color-text-inverse: oklch(1 0 0); /* White text */
+
+  /* Border Colors */
+  --color-border: oklch(0.9 0.005 240); /* Light border */
+  --color-border-hover: oklch(0.8 0.01 240); /* Darker border on hover */
+  --color-divider: oklch(0.92 0.005 240); /* Subtle divider lines */
+
+  /* Sidebar Colors */
+  --color-sidebar-bg: oklch(0.97 0.005 180); /* Sidebar background */
+  --color-sidebar-active: oklch(0.94 0.01 142); /* Active sidebar item */
+  --color-sidebar-hover: oklch(0.95 0.005 180); /* Sidebar hover state */
+
+  /* Badge/Tag Colors */
+  --color-badge-red: oklch(0.6 0.18 20); /* Red badges */
+  --color-badge-red-bg: oklch(0.95 0.05 20); /* Red badge background */
+  --color-badge-green: oklch(0.55 0.15 142); /* Green badges */
+  --color-badge-green-bg: oklch(0.95 0.05 142); /* Green badge background */
+  --color-badge-blue: oklch(0.6 0.12 220); /* Blue badges */
+  --color-badge-blue-bg: oklch(0.92 0.05 220); /* Blue badge background */
+  --color-badge-orange: oklch(0.7 0.15 60); /* Orange badges */
+  --color-badge-orange-bg: oklch(0.95 0.05 60); /* Orange badge background */
+
+  /* Card Colors */
+  --color-card-bg: oklch(1 0 0); /* Card background */
+  --color-card-border: oklch(0.9 0.005 240); /* Card borders */
+  --color-card-shadow: oklch(0.8 0.01 240 / 0.1); /* Card shadows */
+
+  /* Interactive Elements */
+  --color-link: oklch(0.6 0.12 220); /* Link color */
+  --color-link-hover: oklch(0.5 0.15 220); /* Link hover */
+  --color-focus-ring: oklch(0.6 0.12 220 / 0.3); /* Focus ring color */
+}
+
+:root {
+  /* Primary Colors */
+  --primary: oklch(0.55 0.15 142); /* Green primary color (logo, buttons) */
+  --primary-hover: oklch(0.5 0.15 142); /* Darker green for hover states */
+  --primary-light: oklch(0.95 0.05 142); /* Very light green background */
+
+  /* Secondary Colors */
+  --secondary: oklch(0.6 0.12 220); /* Blue color (tasks icon) */
+  --secondary-light: oklch(0.92 0.05 220); /* Light blue background */
+
+  /* Accent Colors */
+  --accent-orange: oklch(0.7 0.15 60); /* Orange/amber color (ongoing status) */
+  --accent-orange-light: oklch(0.95 0.05 60); /* Light orange background */
+  --accent-purple: oklch(0.6 0.12 280); /* Purple color (forms section) */
+  --accent-purple-light: oklch(0.92 0.05 280); /* Light purple background */
+
+  /* Status Colors */
+  --success: oklch(0.55 0.15 142); /* Green for completed items */
+  --warning: oklch(0.7 0.15 60); /* Orange for ongoing/pending */
+  --danger: oklch(0.6 0.18 20); /* Red for overdue/issues */
+  --info: oklch(0.6 0.12 220); /* Blue for information */
+
+  /* Neutral Colors */
+  --background: oklch(0.98 0.005 180); /* Main background */
+  --surface: oklch(1 0 0); /* White surface color */
+  --surface-hover: oklch(0.96 0.005 180); /* Light gray hover */
+
+  /* Text Colors */
+  --text-primary: oklch(0.2 0.02 240); /* Dark text */
+  --text-secondary: oklch(0.5 0.02 240); /* Medium gray text */
+  --text-muted: oklch(0.65 0.02 240); /* Light gray text */
+  --text-inverse: oklch(1 0 0); /* White text */
+
+  /* Border Colors */
+  --border: oklch(0.9 0.005 240); /* Light border */
+  --border-hover: oklch(0.8 0.01 240); /* Darker border on hover */
+  --divider: oklch(0.92 0.005 240); /* Subtle divider lines */
+
+  /* Sidebar Colors */
+  --sidebar-bg: oklch(0.97 0.005 180); /* Sidebar background */
+  --sidebar-active: oklch(0.94 0.01 142); /* Active sidebar item */
+  --sidebar-hover: oklch(0.95 0.005 180); /* Sidebar hover state */
+
+  /* Badge/Tag Colors */
+  --badge-red: oklch(0.6 0.18 20); /* Red badges */
+  --badge-red-bg: oklch(0.95 0.05 20); /* Red badge background */
+  --badge-green: oklch(0.55 0.15 142); /* Green badges */
+  --badge-green-bg: oklch(0.95 0.05 142); /* Green badge background */
+  --badge-blue: oklch(0.6 0.12 220); /* Blue badges */
+  --badge-blue-bg: oklch(0.92 0.05 220); /* Blue badge background */
+  --badge-orange: oklch(0.7 0.15 60); /* Orange badges */
+  --badge-orange-bg: oklch(0.95 0.05 60); /* Orange badge background */
+
+  /* Card Colors */
+  --card-bg: oklch(1 0 0); /* Card background */
+  --card-border: oklch(0.9 0.005 240); /* Card borders */
+  --card-shadow: oklch(0.8 0.01 240 / 0.1); /* Card shadows */
+
+  /* Interactive Elements */
+  --link: oklch(0.6 0.12 220); /* Link color */
+  --link-hover: oklch(0.5 0.15 220); /* Link hover */
+  --focus-ring: oklch(0.6 0.12 220 / 0.3); /* Focus ring color */
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
