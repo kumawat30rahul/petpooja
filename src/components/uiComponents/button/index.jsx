@@ -16,7 +16,7 @@ const CustomButton = ({
   // Base styles
   const baseStyles = `
     flex items-center font-medium rounded-lg transition-all duration-200
-    focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed
+    focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer
   `;
 
   // Size variants
@@ -38,6 +38,8 @@ const CustomButton = ({
       hover:bg-blue-700 hover:border-blue-700
       active:bg-blue-800
     `,
+    greenSecondary: `bg-primary-light text-primary hover:bg-primary-hover
+      hover:text-primary-hover border border-primary-light`,
     outline: `
       bg-transparent text-green-600 border border-green-600
       hover:bg-green-50 hover:text-primary-hover
@@ -90,7 +92,7 @@ const CustomButton = ({
     .replace(/\s+/g, " ")
     .trim();
 
-    console.log({buttonClasses},children)
+  console.log({ buttonClasses }, children);
 
   return (
     <button
@@ -106,7 +108,7 @@ const CustomButton = ({
         </div>
       )}
 
-      {children &&  <span className="flex-1 min-w-max">{children}</span>}
+      {children && <span className="min-w-max">{children}</span>}
 
       {rightIcon && (
         <div className="flex-shrink-0 flex items-center justify-center w-4 h-4">

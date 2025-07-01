@@ -8,7 +8,7 @@ import NavbarTools from "../components/tools";
 const TopNavbar = () => {
   const isMdUp = useMediaQuery("md");
   return (
-    <div className="w-full h-15 border border-border flex items-center justify-between p-3">
+    <div className="w-full h-full border border-border flex items-center justify-between p-3">
       {!isMdUp && <CustomButton leftIcon={<Menu />} variant="ghost" />}
       <div className="h-8 w-auto md:w-50">
         <img
