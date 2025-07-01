@@ -1,6 +1,7 @@
 import React from "react";
 import Iconwrapper from "../../uiComponents/icon";
 import CardLayout from "../../layouts/card";
+import CommonTypography from "../../uiComponents/typography";
 
 const KpiCard = ({ data, index }) => {
   const iconVariants = {
@@ -18,7 +19,7 @@ const KpiCard = ({ data, index }) => {
         <Iconwrapper className={iconVariants?.[data?.iconVariant]}>
           {data?.icon}
         </Iconwrapper>
-        <span className="font-semibold">{data?.title}</span>
+        <CommonTypography weight="semibold">{data?.title}</CommonTypography>
       </div>
       <div className="flex gap-2 items-center">
         {data?.data?.map((item, idx) => (
