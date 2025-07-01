@@ -2,6 +2,7 @@ import {
   Calendar,
   ChartSpline,
   ChevronLeft,
+  ChevronRight,
   ClipboardList,
   FileStack,
   Home,
@@ -13,9 +14,11 @@ import {
 import CustomButton from "../../uiComponents/button";
 import { useState } from "react";
 import Iconwrapper from "../../uiComponents/icon";
+import { useHover } from "../../../hooks/useHoverHook";
 
 const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
   const [selectedTab, setSelectedTab] = useState("home");
+  const [sidebarRef, isHovered] = useHover();
 
   const sidebarButtons = [
     {
@@ -75,15 +78,22 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
   ];
 
   return (
-    <div className="w-[250px] relative h-full pt-5 flex flex-col items-start justify-between gap-2 p-2 border-r border-border">
-      <div
-        onClick={() => setSideNavOpen(!sideNavOpen)}
-        className="h-5 w-5 absolute top-6.5 -right-3 cursor-pointer rounded-full border border-border flex items-center justify-center bg-surface hover:bg-primary hover:text-surface transition-all duration-150"
-      >
-        <Iconwrapper>
-          <ChevronLeft />
-        </Iconwrapper>
-      </div>
+    <div
+      className={` ${
+        sideNavOpen ? "w-[250px]" : "w-auto"
+      } relative h-full pt-5 flex flex-col items-start justify-between gap-2 p-2 border-r border-border`}
+      ref={sidebarRef}
+    >
+      {isHovered && (
+        <div
+          onClick={() => setSideNavOpen(!sideNavOpen)}
+          className="h-5 w-5 absolute top-6.5 -right-3 cursor-pointer rounded-full border border-border flex items-center justify-center bg-surface hover:bg-primary hover:text-surface transition-all duration-150"
+        >
+          <Iconwrapper>
+            {sideNavOpen ? <ChevronLeft /> : <ChevronRight />}
+          </Iconwrapper>
+        </div>
+      )}
       <div className="w-full h-full flex flex-col items-start justify-start gap-2">
         {sidebarButtons.map((button) => (
           <div className="w-full">
@@ -95,7 +105,7 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
               className="w-full start"
               justify="start"
             >
-              {!sideNavOpen ? button?.title : null}
+              {sideNavOpen ? button?.title : null}
             </CustomButton>
           </div>
         ))}
@@ -104,10 +114,12 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
         <div className="h-10 w-10 rounded-full bg-primary text-surface flex items-center justify-center">
           A
         </div>
-        <div className="flex flex-col items-start gap-1">
-          <span className="text-sm font-bold">Ajay</span>
-          <span className="text-xs">Manager</span>
-        </div>
+        {sideNavOpen && (
+          <div className="flex flex-col items-start gap-1">
+            <span className="text-sm font-bold">Ajay</span>
+            <span className="text-xs">Manager</span>
+          </div>
+        )}
       </div>
     </div>
   );
