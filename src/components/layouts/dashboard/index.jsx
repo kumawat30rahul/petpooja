@@ -3,9 +3,11 @@ import { Outlet } from "react-router-dom";
 import TopNavbar from "../../navbars/topNavbar";
 import NavbarTools from "../../navbars/components/tools";
 import SideNavbar from "../../navbars/sidebar";
+import { useMediaQuery } from "../../../hooks/useMediaQueryHook";
 
 const DashboardLayout = () => {
   const [sideNavOpen, setSideNavOpen] = useState(true);
+  const isMdUp = useMediaQuery("md");
 
   return (
     <div className="h-screen w-full flex flex-col">
@@ -16,7 +18,12 @@ const DashboardLayout = () => {
         <NavbarTools />
       </div>
       <div className="flex-1 flex overflow-hidden">
-        <SideNavbar sideNavOpen={sideNavOpen} setSideNavOpen={setSideNavOpen} />
+        {isMdUp && (
+          <SideNavbar
+            sideNavOpen={sideNavOpen}
+            setSideNavOpen={setSideNavOpen}
+          />
+        )}
         <main className="flex-1 overflow-auto p-4">
           <Outlet />
         </main>
