@@ -1,0 +1,9 @@
+.ai-icon {
+  transition: fill 0.3s ease;
+  fill: oklch(0.6764 0 0); /* default fill color */
+  cursor: pointer;
+}
+
+.ai-icon-hover:hover {
+  fill: black; /* color on hover */
+}

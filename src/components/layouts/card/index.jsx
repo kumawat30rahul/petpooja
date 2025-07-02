@@ -2,7 +2,7 @@ const CardLayout = ({ children, className, delay = 0 }) => {
   return (
     <div
       className={`w-auto h-auto p-4 border border-border rounded-xl 
-        animate-slideUp opacity-0 overflow-hidden
+        animate-slideUp opacity-0 
         ${className}`}
       style={{
         animation: `slideUpFade 0.6s ease-out forwards`,
