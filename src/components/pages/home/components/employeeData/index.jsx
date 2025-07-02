@@ -145,68 +145,28 @@ const EmployeeData = () => {
       completed: "79%",
     },
     {
-      name: "Priya",
-      department: "Sales Division",
-      assigned: 45,
-      ongoing: 45,
-      overdue: 45,
-      completed: "45%",
+      name: "Sita",
+      department: "Marketing Team",
+      assigned: 52,
+      ongoing: 52,
+      overdue: 52,
+      completed: "52%",
     },
     {
-      name: "Vikram",
-      department: "Research and Development",
-      assigned: 79,
-      ongoing: 79,
-      overdue: 79,
-      completed: "79%",
+      name: "Ravi",
+      department: "Finance Department",
+      assigned: 64,
+      ongoing: 64,
+      overdue: 64,
+      completed: "64%",
     },
     {
-      name: "Priya",
-      department: "Sales Division",
-      assigned: 45,
-      ongoing: 45,
-      overdue: 45,
-      completed: "45%",
-    },
-    {
-      name: "Vikram",
-      department: "Research and Development",
-      assigned: 79,
-      ongoing: 79,
-      overdue: 79,
-      completed: "79%",
-    },
-    {
-      name: "Priya",
-      department: "Sales Division",
-      assigned: 45,
-      ongoing: 45,
-      overdue: 45,
-      completed: "45%",
-    },
-    {
-      name: "Vikram",
-      department: "Research and Development",
-      assigned: 79,
-      ongoing: 79,
-      overdue: 79,
-      completed: "79%",
-    },
-    {
-      name: "Priya",
-      department: "Sales Division",
-      assigned: 45,
-      ongoing: 45,
-      overdue: 45,
-      completed: "45%",
-    },
-    {
-      name: "Vikram",
-      department: "Research and Development",
-      assigned: 79,
-      ongoing: 79,
-      overdue: 79,
-      completed: "79%",
+      name: "Kiran",
+      department: "Customer Support",
+      assigned: 87,
+      ongoing: 87,
+      overdue: 87,
+      completed: "87%",
     },
   ];
 
@@ -247,16 +207,16 @@ const EmployeeData = () => {
       title: "Optimizing Your Inventory",
       icon: <Eye />,
       data: [
-        { title: "Responses", value: 89 },
-        { title: "Tasks", value: 5 },
+        { title: "Responses", value: 78 },
+        { title: "Tasks", value: 12 },
       ],
     },
     {
       title: "Stock Management Techniques",
       icon: <Eye />,
       data: [
-        { title: "Responses", value: 89 },
-        { title: "Tasks", value: 5 },
+        { title: "Responses", value: 34 },
+        { title: "Tasks", value: 8 },
       ],
     },
   ];
@@ -272,37 +232,49 @@ const EmployeeData = () => {
       description:
         "Update the menu to show the dishes and their ingredients clearly. Point out any new cooking methods or dietary options.",
     },
-    {
-      title: "Team Meeting Preparation",
-      description:
-        "Prepare agenda and materials for the upcoming team meeting.",
-    },
-    {
-      title: "Client Follow-up",
-      description: "Follow up with clients regarding their recent inquiries.",
-    },
   ];
 
   const overdueTasksColumns = [
-    { key: "name", label: "Task Name", align: "left", ellipsis: true },
-    { key: "assigned", label: "Assigned To", align: "center" },
+    {
+      key: "name",
+      label: "Task Name",
+      align: "left",
+      ellipsis: true,
+      minWidth: "100px", // Task names need more space
+      maxWidth: "150px", // But limit to prevent too wide
+    },
+    {
+      key: "assigned",
+      label: "Assigned To",
+      align: "left",
+      minWidth: "80px",
+      maxWidth: "100px",
+    },
     {
       key: "status",
       label: "Status",
       align: "center",
-      renderCell: () => {
+      minWidth: "100px",
+      renderCell: (row) => {
         return (
-          <span className="leading-[1em] text-xs bg-accent-orange/8 px-1 py-0.5 rounded-lg border border-accent-orange text-accent-orange">
-            Ongoing
+          <span className="leading-[1em] text-xs bg-red-600/8 px-1 py-0.5 rounded-lg border border-red-600 text-red-600">
+            {row?.status}
           </span>
         );
       },
     },
-    { key: "dueDate", label: "Due Date", align: "center" },
+    {
+      key: "dueDate",
+      label: "Due Date",
+      align: "center",
+      minWidth: "120px",
+    },
     {
       key: "reassign",
       label: "Reassign",
       align: "center",
+      minWidth: "80px", // Icon column can be smaller
+      width: "80px", // Fixed width for icon column
       renderCell: () => {
         return (
           <div className="flex items-center justify-center">
@@ -376,6 +348,11 @@ const EmployeeData = () => {
         selectLabel={"Select Employee"}
         customSelectRequired={true}
         linkRequired={false}
+        selectPlaceholder={"Select Employee"}
+        selectOption={[
+          { label: "Jhon Doe", value: "jhonDoe" },
+          { label: "Jane Alex", value: "janeAlex" },
+        ]}
       >
         <div className="grid grid-cols-6 gap-4 p-4">
           {workAllocatedData.map((item, index) => (
@@ -398,6 +375,11 @@ const EmployeeData = () => {
         childrenHeight="250px"
         selectLabel={"Select Employee"}
         customSelectRequired={true}
+        selectPlaceholder={"Select Employee"}
+        selectOption={[
+          { label: "Jhon Doe", value: "jhonDoe" },
+          { label: "Jane Alex", value: "janeAlex" },
+        ]}
       >
         <DynamicDataTable
           columns={employeeWorkProgressColumns}

@@ -1,9 +1,11 @@
 import {
   Calendar,
+  CalendarDays,
   ChartSpline,
   ChevronLeft,
   ChevronRight,
   ClipboardList,
+  Dock,
   FileStack,
   Home,
   InfoIcon,
@@ -11,7 +13,9 @@ import {
   LogOut,
   MessageCircle,
   MessageCircleMore,
+  PanelsLeftBottom,
   User,
+  Users,
 } from "lucide-react";
 import CustomButton from "../../uiComponents/button";
 import { useState } from "react";
@@ -44,25 +48,25 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
     {
       title: "Calendar",
       value: "calendar",
-      icon: <Calendar />,
+      icon: <CalendarDays />,
       roue: "/calendar",
     },
     {
       title: "Browse Templates",
       value: "borwse-templates",
-      icon: <FileStack />,
+      icon: <Dock />,
       roue: "/browse-templates",
     },
     {
       title: "Template Library",
       value: "template-library",
-      icon: <LayoutTemplate />,
+      icon: <PanelsLeftBottom />,
       roue: "/template-library",
     },
     {
       title: "User Management",
       value: "user-management",
-      icon: <User />,
+      icon: <Users />,
       roue: "/",
     },
     {

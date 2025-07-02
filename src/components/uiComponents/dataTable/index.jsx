@@ -9,14 +9,17 @@ const DynamicDataTable = ({ columns = [], rows = [], className = "" }) => {
                 {columns.map((column, index) => (
                   <th
                     key={index}
-                    className={`px-5 py-3 text-sm font-medium text-gray-900 bg-secondary-2 min-w-32 ${
+                    className={`px-5 py-3 text-sm font-medium text-gray-900 bg-secondary-2 ${
                       column.align === "center"
                         ? "text-center"
                         : column.align === "right"
                         ? "text-right"
                         : "text-left"
                     }`}
-                    style={{ minWidth: column.minWidth || "128px" }}
+                    style={{
+                      minWidth: column.minWidth || "128px",
+                      width: column.width || "auto",
+                    }}
                   >
                     {column.label}
                   </th>
@@ -32,7 +35,7 @@ const DynamicDataTable = ({ columns = [], rows = [], className = "" }) => {
                   {columns.map((column, colIndex) => (
                     <td
                       key={colIndex}
-                      className={`px-5 py-3 text-sm text-gray-900 min-w-32 ${
+                      className={`px-5 py-3 text-sm text-gray-900 ${
                         column.align === "center"
                           ? "text-center"
                           : column.align === "right"
@@ -41,7 +44,8 @@ const DynamicDataTable = ({ columns = [], rows = [], className = "" }) => {
                       } ${column.ellipsis ? "truncate" : ""}`}
                       style={{
                         minWidth: column.minWidth || "128px",
-                        maxWidth: column.maxWidth || "200px",
+                        maxWidth: column.maxWidth || "none",
+                        width: column.width || "auto",
                       }}
                     >
                       {column.renderCell

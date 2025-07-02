@@ -6,8 +6,8 @@ import SideNavbar from "../../navbars/sidebar";
 import { useMediaQuery } from "../../../hooks/useMediaQueryHook";
 
 const DashboardLayout = () => {
-  const [sideNavOpen, setSideNavOpen] = useState(true);
   const isLgUp = useMediaQuery("lg");
+  const [sideNavOpen, setSideNavOpen] = useState(isLgUp ? true : false);
 
   return (
     <div className="h-screen w-full flex flex-col">
@@ -25,10 +25,10 @@ const DashboardLayout = () => {
           />
         ) : (
           <div
-            className={`transition-all absolute  z-50 w-full bottom-0 top-15 ${
+            className={`transition-all absolute  z-50 bottom-0 top-15 ${
               !sideNavOpen
-                ? "-translate-x-[250px] "
-                : "translate-x-0 bg-black/20"
+                ? "-translate-x-[250px] w-auto"
+                : "translate-x-0 bg-black/20 w-full"
             } duration-300`}
           >
             <SideNavbar

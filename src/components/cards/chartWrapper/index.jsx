@@ -14,17 +14,26 @@ const ChartWrapper = ({
   selectLabel,
   customSelectRequired = false,
   linkRequired = true,
+  selectPlaceholder,
+  selectOption,
 }) => {
   const [selectedTab, setSelectedTab] = useState(tabs?.[0]?.value || "");
 
   return (
     <CardLayout className="flex flex-col w-full h-auto !p-0" delay={300}>
       <div className="w-full border-b border-border h-auto p-4">
-        <div className="flex flex-col gap-2 xs:flex-row items-start xs:items-start justify-between">
+        <div className="flex gap-2 items-start justify-between">
           <CommonTypography weight="semibold">{label}</CommonTypography>
           <div className="flex">
             {customSelectRequired && (
-              <CustomSelect label={selectLabel} className="mr-4" />
+              <div className="hidden sm:block">
+                <CustomSelect
+                  placeholder={selectPlaceholder}
+                  label={selectLabel}
+                  className="mr-4"
+                  options={selectOption}
+                />
+              </div>
             )}
             {linkRequired && (
               <CustomButton leftIcon={<ExternalLink />} variant="ghost" />
@@ -32,6 +41,15 @@ const ChartWrapper = ({
             <CustomButton leftIcon={<Ellipsis />} variant="ghost" />
           </div>
         </div>
+        {customSelectRequired && (
+          <div className="w-full block sm:hidden">
+            <CustomSelect
+              placeholder={selectPlaceholder}
+              label={selectLabel}
+              options={selectOption}
+            />
+          </div>
+        )}
         <div className="-mb-4 flex items-center gap-0" hidden={!tabs}>
           {tabs?.map((item) => (
             <TabButton isActive={item.value === selectedTab} tab={item} />

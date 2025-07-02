@@ -12,7 +12,9 @@ const WorkFlowCard = ({ data }) => {
         <CommonTypography size="xs" weight="semibold">
           {data?.title}
         </CommonTypography>
-        <Iconwrapper>{data?.icon}</Iconwrapper>
+        <Iconwrapper className={`bg-secondary-2 p-1 h-6 w-6 rounded-lg`}>
+          {data?.icon}
+        </Iconwrapper>
       </div>
       <div className="flex items-center justify-between h-full">
         <div className="flex items-center h-full">

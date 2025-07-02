@@ -12,7 +12,7 @@ const NavbarTools = () => {
         Home
       </CustomButton>
       <div className="flex items-center justify-end">
-        <div className="mr-4 flex  items-center justify-start gap-4 lg:justify-end">
+        <div className="mr-4 flex  items-center justify-start gap-4 lg:gap-0  lg:justify-end">
           <CustomButton variant="ghost" leftIcon={<Sparkles />}>
             {isLgUp ? null : "Ask Ai"}
           </CustomButton>
@@ -22,12 +22,16 @@ const NavbarTools = () => {
         </div>
         <div className="flex items-center gap-4">
           <CustomDateInput />
-          <CustomSelect leftIcon={<Building2 />} label={"Outlet Name"} />
+          <CustomSelect
+            placeholder="Organisation Name"
+            leftIcon={<Building2 />}
+            label={"Outlet Name"}
+            options={[
+              { label: "Gujrat Store", value: "gujratStore" },
+              { label: "Bengaluru Store", value: "bengaluruStore" },
+            ]}
+          />
         </div>
-        {/* <div className="ml-4 flex items-center justify-end lg:hidden">
-          <CustomButton variant="ghost" leftIcon={<Apple />} />
-          <CustomButton variant="ghost" leftIcon={<BellIcon />} />
-        </div> */}
       </div>
     </div>
   );
