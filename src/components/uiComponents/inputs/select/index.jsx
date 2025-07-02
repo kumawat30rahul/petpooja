@@ -15,7 +15,7 @@ const CustomSelect = ({ leftIcon, label, className }) => {
         rightIcon={<ChevronDown />}
         className="w-full"
       >
-        <CommonTypography size="sm" weight="normal">
+        <CommonTypography size="xs" weight="normal">
           {label}
         </CommonTypography>
       </CustomButton>

@@ -26,6 +26,21 @@ const EmployeeData = () => {
     },
   ];
 
+  const barChartTabs = [
+    {
+      label: "Tasks",
+      value: "tasks",
+    },
+    {
+      label: "Issues",
+      value: "issues",
+    },
+    {
+      label: "Forms",
+      value: "forms",
+    },
+  ];
+
   const employeeProgressTabs = [
     {
       label: "Tasks",
@@ -397,7 +412,11 @@ const EmployeeData = () => {
             ))}
           </div>
         </ChartWrapper>
-        <ChartWrapper label={"Workflows"} childrenHeight="300px">
+        <ChartWrapper
+          label={"Department wise allocation"}
+          childrenHeight="300px"
+          tabs={barChartTabs}
+        >
           <div className="p-4 h-full w-full">
             <BarChart />
           </div>

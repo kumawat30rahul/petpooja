@@ -9,6 +9,8 @@ import {
   InfoIcon,
   LayoutTemplate,
   LogOut,
+  MessageCircle,
+  MessageCircleMore,
   User,
 } from "lucide-react";
 import CustomButton from "../../uiComponents/button";
@@ -132,6 +134,15 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
           </div>
         ))}
       </div>
+
+      <CustomButton
+        leftIcon={<MessageCircleMore />}
+        variant="ghost"
+        className="w-full mb-2 shadow-sm h-10"
+        justify="start"
+      >
+        Chat
+      </CustomButton>
 
       <div
         className={`flex items-center rounded-lg w-full cursor-pointer transition-all duration-300 ease-in-out ${

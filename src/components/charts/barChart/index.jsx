@@ -76,9 +76,18 @@ const BarChart = () => {
           display: false,
         },
         ticks: {
+          display: false, // Hide individual tick labels
+        },
+        title: {
+          display: true,
+          text: "Departments",
           color: "#9CA3AF",
           font: {
             size: 12,
+            weight: "normal",
+          },
+          padding: {
+            top: 10,
           },
         },
       },
