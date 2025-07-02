@@ -1,12 +1,89 @@
-# React + Vite
+# My App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built with Vite, featuring interactive charts and responsive design.
 
-Currently, two official plugins are available:
+## 🚀 Instructions to Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Install dependencies**
 
-## Expanding the ESLint configuration
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Start development server**
+
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser**
+   - Navigate to `http://localhost:5173` (or the URL shown in terminal)
+
+### Additional Commands
+
+- **Build for production**: `npm run build`
+- **Preview production build**: `npm run preview`
+- **Lint code**: `npm run lint`
+
+## 🛠️ Tools Used
+
+### Frontend Framework & Build Tools
+
+- **React 19** - UI library
+- **Vite 7** - Build tool and development server
+- **React Router DOM 7** - Client-side routing
+
+### Styling & UI
+
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **Lucide React** - Icon library
+- **PostCSS & Autoprefixer** - CSS processing
+
+### Data Visualization
+
+- **Chart.js 4** - Chart library
+- **React-ChartJS-2** - React wrapper for Chart.js
+
+### Development Tools
+
+- **ESLint** - Code linting
+- **TypeScript types** - Type definitions for React
+
+## ⏱️ Time Taken
+
+**2 days** - Complete development time from setup to deployment
+
+## 🤖 AI Tools Used
+
+- **Claude** - Code assistance and problem-solving
+- **GitHub Copilot** - Code completion and suggestions
+
+## 📝 Project Structure
+
+```
+my-app/
+├── src/
+│   ├── components/
+|   ├── hooks/
+│   ├── pages/
+│   └── main.jsx
+├── public/
+├── package.json
+└── README.md
+```
+
+## 🌐 Live Preview
+
+https://petpooja-sandy.vercel.app/
+
+## 💡 Features
+
+- Responsive design with Tailwind CSS
+- Interactive data visualizations
+- Modern React 19 with hooks
+- Fast development with Vite HMR
+- Clean code with ESLint
+
+---
+
+Built with ❤️ using modern web technologies
