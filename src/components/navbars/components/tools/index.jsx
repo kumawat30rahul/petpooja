@@ -24,7 +24,7 @@ const NavbarTools = () => {
         <div className="flex items-center gap-4">
           <CustomDateInput />
           <CustomSelect
-            placeholder="Organisation Name"
+            placeholder="Outlet Name"
             leftIcon={<Building2 />}
             label={"Outlet Name"}
             options={[
