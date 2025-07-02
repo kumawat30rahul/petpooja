@@ -20,7 +20,7 @@ const ChartWrapper = ({
   return (
     <CardLayout className="flex flex-col w-full h-auto !p-0" delay={300}>
       <div className="w-full border-b border-border h-auto p-4">
-        <div className="flex flex-col gap-2 xs:flex-row items-start xs:items-center justify-between">
+        <div className="flex flex-col gap-2 xs:flex-row items-start xs:items-start justify-between">
           <CommonTypography weight="semibold">{label}</CommonTypography>
           <div className="flex">
             {customSelectRequired && (
