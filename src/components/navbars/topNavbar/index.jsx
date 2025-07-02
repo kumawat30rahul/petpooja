@@ -5,25 +5,31 @@ import CustomButton from "../../uiComponents/button";
 import CustomDivider from "../../uiComponents/divider";
 import NavbarTools from "../components/tools";
 
-const TopNavbar = () => {
-  const isMdUp = useMediaQuery("md");
+const TopNavbar = ({ sideNavOpen, setSideNavOpen }) => {
+  const isLgUp = useMediaQuery("lg");
   return (
     <div className="w-full h-full border border-border flex items-center justify-between p-3">
-      {!isMdUp && <CustomButton leftIcon={<Menu />} variant="ghost" />}
-      <div className="h-8 w-auto md:w-50">
+      {!isLgUp && (
+        <CustomButton
+          leftIcon={<Menu />}
+          variant="ghost"
+          onClick={() => setSideNavOpen(!sideNavOpen)}
+        />
+      )}
+      <div className="h-8 w-auto lg:w-50">
         <img
           src={PET_POOJA_LOGO}
           alt="petPoojaLogo"
           className="h-full w-auto"
         />
       </div>
-      <div className="w-full hidden md:block">
+      <div className="w-full hidden lg:block">
         <NavbarTools />
       </div>
       <div className="flex item-center justify-end gap-4 h-full">
-        {isMdUp && <CustomDivider orientation="vertical" />}
+        {isLgUp && <CustomDivider orientation="vertical" />}
         <CustomButton leftIcon={<Plus className="text-white" />}>
-          {isMdUp ? "Create" : null}
+          {isLgUp ? "Create" : null}
         </CustomButton>
       </div>
     </div>

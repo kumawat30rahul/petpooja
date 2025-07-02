@@ -7,22 +7,35 @@ import { useMediaQuery } from "../../../hooks/useMediaQueryHook";
 
 const DashboardLayout = () => {
   const [sideNavOpen, setSideNavOpen] = useState(true);
-  const isMdUp = useMediaQuery("md");
+  const isLgUp = useMediaQuery("lg");
 
   return (
     <div className="h-screen w-full flex flex-col">
       <div className="h-15 w-full flex-shrink-0">
-        <TopNavbar />
+        <TopNavbar sideNavOpen={sideNavOpen} setSideNavOpen={setSideNavOpen} />
       </div>
-      <div className="block md:hidden w-full flex-shrink-0">
+      <div className="block lg:hidden w-full flex-shrink-0">
         <NavbarTools />
       </div>
       <div className="flex-1 flex overflow-hidden">
-        {isMdUp && (
+        {isLgUp ? (
           <SideNavbar
             sideNavOpen={sideNavOpen}
             setSideNavOpen={setSideNavOpen}
           />
+        ) : (
+          <div
+            className={`transition-all absolute  z-50 w-full bottom-0 top-15 ${
+              !sideNavOpen
+                ? "-translate-x-[250px] "
+                : "translate-x-0 bg-black/20"
+            } duration-300`}
+          >
+            <SideNavbar
+              sideNavOpen={sideNavOpen}
+              setSideNavOpen={setSideNavOpen}
+            />
+          </div>
         )}
         <main className="flex-1 overflow-auto p-4">
           <Outlet />

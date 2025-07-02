@@ -38,12 +38,13 @@ const CustomButton = ({
       hover:bg-blue-700 hover:border-blue-700
       active:bg-blue-800
     `,
-    greenSecondary: `bg-primary-light/50 text-primary
-      hover:text-primary-hover `,
+    greenSecondary: `
+      bg-primary-light/50 text-primary
+      hover:text-primary-hover
+    `,
     outline: `
       bg-transparent text-black-600 border border-border
       hover:bg-black/10 hover:text-black
-     
     `,
     ghost: `
       bg-transparent text-gray-700 border border-transparent
@@ -95,13 +96,13 @@ const CustomButton = ({
   return (
     <button
       type={type}
-      className={buttonClasses}
+      className={`group ${buttonClasses}`}
       onClick={onClick}
       disabled={disabled}
       {...props}
     >
       {leftIcon && (
-        <div className="flex-shrink-0 flex items-center justify-center w-5 h-5">
+        <div className="flex-shrink-0 flex items-center justify-center w-5 h-5 text-secondary-light-2 group-hover:text-black transition-colors duration-200">
           {leftIcon}
         </div>
       )}
@@ -109,14 +110,12 @@ const CustomButton = ({
       {children && <span className="min-w-max">{children}</span>}
 
       {rightIcon && (
-        <div className="flex-shrink-0 flex items-center justify-center w-5 h-5">
+        <div className="flex-shrink-0 flex items-center justify-center w-5 h-5 text-secondary-light-2 group-hover:text-black transition-colors duration-200">
           {rightIcon}
         </div>
       )}
     </button>
   );
 };
-
-// Example usage component
 
 export default CustomButton;

@@ -28,15 +28,15 @@ const BarChart = () => {
       {
         label: "Tasks",
         data: [10, 25, 40, 75, 75, 75, 75],
-        backgroundColor: "#86EFAC", // Light green
-        borderColor: "#86EFAC",
+        backgroundColor: "#99cfb5", // Light green
+        borderColor: "#99cfb5",
         borderWidth: 0,
       },
       {
         label: "Overdue Tasks",
         data: [5, 10, 20, 15, 15, 15, 15],
-        backgroundColor: "#FDE68A", // Light yellow/orange
-        borderColor: "#FDE68A",
+        backgroundColor: "#ffdd9d", // Light yellow/orange
+        borderColor: "#ffdd9d",
         borderWidth: 0,
         borderRadius: {
           topLeft: 10,

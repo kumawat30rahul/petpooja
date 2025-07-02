@@ -1,7 +1,6 @@
 import {
   BriefcaseBusiness,
   Calendar,
-  ChevronDown,
   ChevronUp,
   Clock,
   MessageCircle,

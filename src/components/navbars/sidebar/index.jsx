@@ -81,7 +81,7 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
     <div
       className={`${
         sideNavOpen ? "w-[250px]" : "w-[60px]"
-      } relative h-full pt-5 flex flex-col items-start justify-between gap-2 p-2 border-r border-border transition-all duration-300 ease-in-out`}
+      } relative h-full pt-5 flex flex-col items-start justify-between gap-2 p-2 border-r border-border transition-all duration-300 ease-in-out bg-surface z-100`}
       ref={sidebarRef}
     >
       <div
@@ -149,7 +149,7 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
           }`}
         >
           <span className="text-sm font-bold">Ajay</span>
-          <span className="text-xs">Manager</span>
+          <span className="text-xs text-secondary-light-2">Manager</span>
         </div>
       </div>
     </div>

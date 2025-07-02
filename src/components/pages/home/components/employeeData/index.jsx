@@ -1,10 +1,11 @@
-import { Eye } from "lucide-react";
+import { Eye, UserPlus } from "lucide-react";
 import ChartWrapper from "../../../../cards/chartWrapper";
 import ChecklistCard from "../../../../cards/checklistCard";
 import TaskCard from "../../../../cards/taskCard";
 import WorkFlowCard from "../../../../cards/workflowCard";
 import BarChart from "../../../../charts/barChart";
 import DynamicDataTable from "../../../../uiComponents/dataTable";
+import Iconwrapper from "../../../../uiComponents/icon";
 
 const EmployeeData = () => {
   const workAllocatedTabs = [
@@ -267,12 +268,96 @@ const EmployeeData = () => {
     },
   ];
 
+  const overdueTasksColumns = [
+    { key: "name", label: "Task Name", align: "left", ellipsis: true },
+    { key: "assigned", label: "Assigned To", align: "center" },
+    {
+      key: "status",
+      label: "Status",
+      align: "center",
+      renderCell: () => {
+        return (
+          <span className="leading-[1em] text-xs bg-accent-orange/8 px-1 py-0.5 rounded-lg border border-accent-orange text-accent-orange">
+            Ongoing
+          </span>
+        );
+      },
+    },
+    { key: "dueDate", label: "Due Date", align: "center" },
+    {
+      key: "reassign",
+      label: "Reassign",
+      align: "center",
+      renderCell: () => {
+        return (
+          <div className="flex items-center justify-center">
+            <Iconwrapper>
+              <UserPlus />
+            </Iconwrapper>
+          </div>
+        );
+      },
+    },
+  ];
+
+  const overdueTasksData = [
+    {
+      name: "Menu Plannig",
+      assigned: "Ajay",
+      status: "Ongoing",
+      dueDate: "12-07-2024",
+      reassign: "Jhon",
+    },
+    {
+      name: "Staff Scheduling",
+      assigned: "Niraj",
+      status: "Ongoing",
+      dueDate: "13-06-2024",
+      reassign: "Jhon",
+    },
+    {
+      name: "Inventory Management",
+      assigned: "Vijay",
+      status: "Ongoing",
+      dueDate: "01-02-2023",
+      reassign: "Jhon",
+    },
+    {
+      name: "Customer Feedback Analysis",
+      assigned: "Arvind",
+      status: "Ongoing",
+      dueDate: "12-02-2023",
+      reassign: "Jhon",
+    },
+    {
+      name: "Budget Forecasting",
+      assigned: "Priya",
+      status: "Overdue",
+      dueDate: "04-11-2020",
+      reassign: "Jhon",
+    },
+    {
+      name: "Marketing Strategy Development",
+      assigned: "Suresh",
+      status: "Overdue",
+      dueDate: "10-05-2026",
+      reassign: "Jhon",
+    },
+    {
+      name: "Quality Assurance Testing",
+      assigned: "Fatima",
+      status: "Overdue",
+      dueDate: "03-10-2021",
+      reassign: "Jhon",
+    },
+  ];
+
   return (
     <>
       <ChartWrapper
         label={"Work Allocated"}
         tabs={workAllocatedTabs}
-        childrenHeight="300px"
+        childrenHeight="250px"
         selectLabel={"Select Employee"}
         customSelectRequired={true}
         linkRequired={false}
@@ -295,7 +380,7 @@ const EmployeeData = () => {
       <ChartWrapper
         label={"Employee Wise Progress"}
         tabs={employeeProgressTabs}
-        childrenHeight="300px"
+        childrenHeight="250px"
         selectLabel={"Select Employee"}
         customSelectRequired={true}
       >
@@ -305,7 +390,7 @@ const EmployeeData = () => {
         />
       </ChartWrapper>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <ChartWrapper label={"Overdue Tasks"} childrenHeight="300px">
+        <ChartWrapper label={"Personal Notepad"} childrenHeight="300px">
           <div className="flex flex-col gap-4 p-4">
             {checklistCardData.map((item, index) => (
               <ChecklistCard data={item} />
@@ -319,13 +404,13 @@ const EmployeeData = () => {
         </ChartWrapper>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <ChartWrapper label={"Overdue Tasks"} childrenHeight="300px">
+        <ChartWrapper label={"Overdue Tasks"} childrenHeight="250px">
           <DynamicDataTable
-            columns={employeeWorkProgressColumns}
-            rows={employeeWorkProgressData}
+            columns={overdueTasksColumns}
+            rows={overdueTasksData}
           />
         </ChartWrapper>
-        <ChartWrapper label={"Workflows"} childrenHeight="300px">
+        <ChartWrapper label={"Workflows"} childrenHeight="250px">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 p-4">
             {workflowsData.map((item, index) => (
               <div key={item.value}>

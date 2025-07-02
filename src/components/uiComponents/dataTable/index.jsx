@@ -1,51 +1,59 @@
-import React from "react";
-
 const DynamicDataTable = ({ columns = [], rows = [], className = "" }) => {
-  // Default data if no props provided
-
   return (
-    <div className={`w-full h-full ${className}`}>
-      <div className="bg-white overflow-y-auto  rounded-lg overflow-hidden h-full">
-        <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200 sticky top-0">
-            <tr className="sticky top-0">
-              {columns.map((column, index) => (
-                <th
-                  key={index}
-                  className={`px-6 py-4 text-sm font-medium text-gray-900 sticky top-0 ${
-                    column.align === "center"
-                      ? "text-center"
-                      : column.align === "right"
-                      ? "text-right"
-                      : "text-left"
-                  }`}
-                >
-                  {column.label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className="hover:bg-gray-50 transition-colors">
-                {columns.map((column, colIndex) => (
-                  <td
-                    key={colIndex}
-                    className={`px-6 py-4 text-sm text-gray-900 ${
+    <div className={`w-full h-full flex flex-col ${className}`}>
+      <div className="bg-white rounded-lg overflow-hidden flex-1 min-h-0 flex flex-col">
+        <div className="overflow-y-auto overflow-x-auto flex-1">
+          <table className="w-full min-w-max">
+            <thead className="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
+              <tr>
+                {columns.map((column, index) => (
+                  <th
+                    key={index}
+                    className={`px-5 py-3 text-sm font-medium text-gray-900 bg-gray-50 min-w-32 ${
                       column.align === "center"
                         ? "text-center"
                         : column.align === "right"
                         ? "text-right"
                         : "text-left"
-                    } ${colIndex === 0 ? "font-medium" : ""}`}
+                    }`}
+                    style={{ minWidth: column.minWidth || "128px" }}
                   >
-                    {row[column.key]}
-                  </td>
+                    {column.label}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {rows.map((row, rowIndex) => (
+                <tr
+                  key={rowIndex}
+                  className="hover:bg-gray-50 transition-colors"
+                >
+                  {columns.map((column, colIndex) => (
+                    <td
+                      key={colIndex}
+                      className={`px-5 py-3 text-sm text-gray-900 min-w-32 ${
+                        column.align === "center"
+                          ? "text-center"
+                          : column.align === "right"
+                          ? "text-right"
+                          : "text-left"
+                      } ${column.ellipsis ? "truncate" : ""}`}
+                      style={{
+                        minWidth: column.minWidth || "128px",
+                        maxWidth: column.maxWidth || "200px",
+                      }}
+                    >
+                      {column.renderCell
+                        ? column.renderCell(row, rowIndex, column)
+                        : row[column.key]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
