@@ -44,11 +44,6 @@ A modern React application built with Vite, featuring interactive charts and res
 - **Chart.js 4** - Chart library
 - **React-ChartJS-2** - React wrapper for Chart.js
 
-### Development Tools
-
-- **ESLint** - Code linting
-- **TypeScript types** - Type definitions for React
-
 ## ⏱️ Time Taken
 
 **2 days** - Complete development time from setup to deployment
@@ -83,7 +78,3 @@ https://petpooja-sandy.vercel.app/
 - Modern React 19 with hooks
 - Fast development with Vite HMR
 - Clean code with ESLint
-
----
-
-Built with ❤️ using modern web technologies
