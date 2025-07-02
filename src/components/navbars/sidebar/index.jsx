@@ -79,47 +79,78 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
 
   return (
     <div
-      className={` ${
-        sideNavOpen ? "w-[250px]" : "w-auto"
-      } relative h-full pt-5 flex flex-col items-start justify-between gap-2 p-2 border-r border-border`}
+      className={`${
+        sideNavOpen ? "w-[250px]" : "w-[60px]"
+      } relative h-full pt-5 flex flex-col items-start justify-between gap-2 p-2 border-r border-border transition-all duration-300 ease-in-out`}
       ref={sidebarRef}
     >
-      {isHovered && (
-        <div
-          onClick={() => setSideNavOpen(!sideNavOpen)}
-          className="h-5 w-5 absolute top-6.5 -right-3 cursor-pointer rounded-full border border-border flex items-center justify-center bg-surface hover:bg-primary hover:text-surface transition-all duration-150"
-        >
-          <Iconwrapper>
-            {sideNavOpen ? <ChevronLeft /> : <ChevronRight />}
-          </Iconwrapper>
-        </div>
-      )}
+      <div
+        onClick={() => setSideNavOpen(!sideNavOpen)}
+        className={`h-6 w-6 absolute top-7 z-100 cursor-pointer rounded-full border border-border flex items-center justify-center bg-surface hover:bg-primary hover:text-surface transition-all duration-300 ease-in-out ${
+          isHovered
+            ? sideNavOpen
+              ? "-right-3 opacity-100"
+              : "-right-3 opacity-100"
+            : sideNavOpen
+            ? "-right-3 opacity-0"
+            : "-right-3 opacity-0"
+        }`}
+      >
+        <Iconwrapper>
+          <div className="transition-transform duration-300 ease-in-out">
+            {sideNavOpen ? (
+              <ChevronLeft size={12} />
+            ) : (
+              <ChevronRight size={12} />
+            )}
+          </div>
+        </Iconwrapper>
+      </div>
+
       <div className="w-full h-full flex flex-col items-start justify-start gap-2">
-        {sidebarButtons.map((button) => (
-          <div className="w-full">
+        {sidebarButtons.map((button, index) => (
+          <div key={button.value} className="w-full">
             <CustomButton
+              size="large"
               leftIcon={button?.icon}
               variant={`${
                 selectedTab === button?.value ? "greenSecondary" : "ghost"
               }`}
-              className="w-full start"
+              className="w-full start transition-all duration-200 ease-in-out"
               justify="start"
             >
-              {sideNavOpen ? button?.title : null}
+              <span
+                className={`transition-all duration-300 ease-in-out whitespace-nowrap ${
+                  sideNavOpen
+                    ? "opacity-100 translate-x-0 max-w-full"
+                    : "opacity-0 -translate-x-2 max-w-0 overflow-hidden"
+                }`}
+              >
+                {button?.title}
+              </span>
             </CustomButton>
           </div>
         ))}
       </div>
-      <div className="flex gap-2 p-2 bg-secondary-light rounded-lg w-full">
-        <div className="h-10 w-10 rounded-full bg-primary text-surface flex items-center justify-center">
+
+      <div
+        className={`flex items-center rounded-lg w-full cursor-pointer transition-all duration-300 ease-in-out ${
+          sideNavOpen ? "bg-secondary-2 p-2 gap-2" : "pb-2 justify-center gap-0"
+        }`}
+      >
+        <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-surface transition-all duration-300">
           A
         </div>
-        {sideNavOpen && (
-          <div className="flex flex-col items-start gap-1">
-            <span className="text-sm font-bold">Ajay</span>
-            <span className="text-xs">Manager</span>
-          </div>
-        )}
+        <div
+          className={`flex flex-col items-start gap-1 transition-all duration-300 ease-in-out whitespace-nowrap ${
+            sideNavOpen
+              ? "opacity-100 translate-x-0 max-w-full"
+              : "opacity-0 -translate-x-2 max-w-0 overflow-hidden"
+          }`}
+        >
+          <span className="text-sm font-bold">Ajay</span>
+          <span className="text-xs">Manager</span>
+        </div>
       </div>
     </div>
   );

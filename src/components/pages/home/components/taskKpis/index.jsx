@@ -1,28 +1,28 @@
-import { Apple, BookText, ClipboardList, Info } from "lucide-react";
+import { Apple, BookText, ClipboardList, Info, Sparkles } from "lucide-react";
 import KpiCard from "../../../../cards/kpiCard";
 
 const TasksKpis = () => {
   const tasksApiData = [
     {
       title: "22 Ai Review",
-      icon: <Apple />,
+      icon: <Sparkles />,
       iconVariant: "default",
       data: [
         {
           title: "Manually Approve",
-          value: 22,
+          value: 2,
           color: "text-red-500",
           background: "bg-red-500/20",
         },
         {
           title: "Completed",
-          value: 80,
+          value: 10,
           color: "text-green-500",
           background: "bg-green-500/20",
         },
         {
           title: "Rejected by Ai",
-          value: 20,
+          value: 10,
           color: "text-red-500",
           background: "bg-red-500/20",
         },
@@ -36,19 +36,19 @@ const TasksKpis = () => {
       data: [
         {
           title: "Ongoing",
-          value: 22,
+          value: 10,
           color: "text-orange-500",
           background: "bg-orange-500/20",
         },
         {
           title: "Overdue",
-          value: 80,
+          value: 2,
           color: "text-red-500",
           background: "bg-red-500/20",
         },
         {
           title: "Completed",
-          value: 20,
+          value: 10,
           color: "text-green-500",
           background: "bg-green-500/20",
         },

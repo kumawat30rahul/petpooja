@@ -10,7 +10,7 @@ const TabButton = ({ tab, index, isActive, onClick, variant, size }) => {
   const sizeStyles = {
     small: "px-3 py-1.5 text-xs gap-1.5",
     medium: "px-4 py-2 text-sm gap-2",
-    large: "px-6 py-3 text-base gap-2.5",
+    large: "px-6 py-3 text-base gap-2",
   };
 
   // Variant-specific styles
@@ -55,11 +55,11 @@ const TabButton = ({ tab, index, isActive, onClick, variant, size }) => {
       {tab.count !== undefined && (
         <span
           className={`
-          inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 text-xs
+          inline-flex items-center justify-center min-w-[1.25rem] h-5 px-0.5 text-xs
           font-medium rounded-full
           ${
             isActive
-              ? "bg-green-100 text-green-700"
+              ? "bg-green-100 text-green-700 "
               : "bg-gray-100 text-gray-600"
           }
         `}
@@ -71,7 +71,7 @@ const TabButton = ({ tab, index, isActive, onClick, variant, size }) => {
       {tab.badge && (
         <span
           className={`
-          inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full
+          inline-flex items-center px-1 py-0.5 text-xs font-medium rounded-full
           ${
             tab.badge.variant === "success"
               ? "bg-green-100 text-green-800"

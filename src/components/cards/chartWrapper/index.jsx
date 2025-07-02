@@ -4,17 +4,31 @@ import CustomButton from "../../uiComponents/button";
 import CommonTypography from "../../uiComponents/typography";
 import TabButton from "../../uiComponents/tabs";
 import { useState } from "react";
+import CustomSelect from "../../uiComponents/inputs/select";
 
-const ChartWrapper = ({ label, children, tabs, childrenHeight }) => {
+const ChartWrapper = ({
+  label,
+  children,
+  tabs,
+  childrenHeight,
+  selectLabel,
+  customSelectRequired = false,
+  linkRequired = true,
+}) => {
   const [selectedTab, setSelectedTab] = useState(tabs?.[0]?.value || "");
 
   return (
-    <CardLayout className="flex flex-col w-full h-auto !p-0">
+    <CardLayout className="flex flex-col w-full h-auto !p-0" delay={300}>
       <div className="w-full border-b border-border h-auto p-4">
         <div className="flex items-center justify-between">
-          <CommonTypography weight="bold">{label}</CommonTypography>
+          <CommonTypography weight="semibold">{label}</CommonTypography>
           <div className="flex">
-            <CustomButton leftIcon={<ExternalLink />} variant="ghost" />
+            {customSelectRequired && (
+              <CustomSelect label={selectLabel} className="mr-4" />
+            )}
+            {linkRequired && (
+              <CustomButton leftIcon={<ExternalLink />} variant="ghost" />
+            )}
             <CustomButton leftIcon={<Ellipsis />} variant="ghost" />
           </div>
         </div>

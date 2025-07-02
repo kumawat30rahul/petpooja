@@ -15,7 +15,7 @@ const CustomButton = ({
 }) => {
   // Base styles
   const baseStyles = `
-    flex items-center font-medium rounded-lg transition-all duration-200
+    flex items-center font-medium rounded-lg transition-all duration-200 leading-[1em]
     focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer
   `;
 
@@ -23,7 +23,7 @@ const CustomButton = ({
   const sizeStyles = {
     small: "px-3 py-1.5 text-sm gap-1.5",
     medium: "px-2.5 py-1.5 text-sm gap-1.5",
-    large: "px-6 py-3 text-base gap-2.5",
+    large: "px-3 py-2.5 text-sm gap-2.5",
   };
 
   // Variant styles
@@ -38,12 +38,12 @@ const CustomButton = ({
       hover:bg-blue-700 hover:border-blue-700
       active:bg-blue-800
     `,
-    greenSecondary: `bg-primary-light text-primary hover:bg-primary-hover
-      hover:text-primary-hover border border-primary-light`,
+    greenSecondary: `bg-primary-light/50 text-primary
+      hover:text-primary-hover `,
     outline: `
-      bg-transparent text-green-600 border border-green-600
-      hover:bg-green-50 hover:text-primary-hover
-      active:bg-green-100
+      bg-transparent text-black-600 border border-border
+      hover:bg-black/10 hover:text-black
+     
     `,
     ghost: `
       bg-transparent text-gray-700 border border-transparent
@@ -92,8 +92,6 @@ const CustomButton = ({
     .replace(/\s+/g, " ")
     .trim();
 
-  console.log({ buttonClasses }, children);
-
   return (
     <button
       type={type}
@@ -103,7 +101,7 @@ const CustomButton = ({
       {...props}
     >
       {leftIcon && (
-        <div className="flex-shrink-0 flex items-center justify-center w-4 h-4">
+        <div className="flex-shrink-0 flex items-center justify-center w-5 h-5">
           {leftIcon}
         </div>
       )}
@@ -111,7 +109,7 @@ const CustomButton = ({
       {children && <span className="min-w-max">{children}</span>}
 
       {rightIcon && (
-        <div className="flex-shrink-0 flex items-center justify-center w-4 h-4">
+        <div className="flex-shrink-0 flex items-center justify-center w-5 h-5">
           {rightIcon}
         </div>
       )}

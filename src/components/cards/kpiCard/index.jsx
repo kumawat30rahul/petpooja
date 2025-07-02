@@ -5,18 +5,19 @@ import CommonTypography from "../../uiComponents/typography";
 
 const KpiCard = ({ data, index }) => {
   const iconVariants = {
-    default: `bg-primary text-white rounded-lg p-1 h-10 w-10`,
-    blue: `bg-blue-500/20 text-blue-500 rounded-lg p-1 h-10 w-10`,
-    red: `bg-red-500/20 text-red-500 rounded-lg p-1 h-10 w-10`,
+    default: `bg-primary text-white rounded-lg p-1 h-9 w-9`,
+    blue: `bg-blue-400/20 text-blue-500 rounded-lg p-1 h-9 w-9`,
+    red: `bg-red-400/20 text-red-500 rounded-lg p-1 h-9 w-9`,
   };
 
   return (
     <CardLayout
       key={`${data?.title}-${index}`}
       className={`flex flex-col gap-2`}
+      delay={index * 100}
     >
       <div className="flex items-center gap-4">
-        <Iconwrapper className={iconVariants?.[data?.iconVariant]}>
+        <Iconwrapper className={`${iconVariants?.[data?.iconVariant]}`}>
           {data?.icon}
         </Iconwrapper>
         <CommonTypography weight="semibold">{data?.title}</CommonTypography>
@@ -27,9 +28,11 @@ const KpiCard = ({ data, index }) => {
             key={`${item?.title}-${idx}`}
             className={`text-xs min-w-max flex items-center gap-2`}
           >
-            <span className="text-secondary">{item?.title}</span>
+            <span className="text-secondary-light-2 font-normal">
+              {item?.title}
+            </span>
             <span
-              className={`${item?.color} ${item?.background} rounded-full h-5 w-5 p-3 flex items-center justify-center font-semibold`}
+              className={`${item?.color} ${item?.background} rounded-full h-5 w-5 p-2 flex items-center justify-center font-semibold`}
             >
               {item?.value}
             </span>

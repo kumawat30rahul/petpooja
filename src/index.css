@@ -2,21 +2,25 @@
 
 @theme {
   --color-primary: oklch(
-    0.55 0.15 142
+    0.5463 0.1421 152.52
   ); /* Green primary color (logo, buttons) */
   --color-primary-hover: oklch(
     0.5 0.15 142
   ); /* Darker green for hover states */
   --color-primary-light: oklch(0.95 0.05 142); /* Very light green background */
+  --color-primary-light-second: oklch(
+    0.9644 0.0183 150.56
+  ); /* Alternative green color */
 
   /* Secondary Colors */
-  --color-secondary: oklch(0.6 0.12 220); /* Blue color (tasks icon) */
-  --color-secondary-2: oklch(0.9662 0.0034 247.86);
+  --color-secondary: oklch(0.967 0.0029 264.54); /* Blue color (tasks icon) */
+  --color-secondary-2: oklch(0.967 0.0029 264.54);
   --color-secondary-light: oklch(0.92 0.05 220); /* Light blue background */
+  --color-secondary-light-2: oklch(0.6764 0 0);
 
   /* Accent Colors */
   --color-accent-orange: oklch(
-    0.7 0.15 60
+    0.7526 0.1298 80.57
   ); /* Orange/amber color (ongoing status) */
   --color-accent-orange-light: oklch(
     0.95 0.05 60

@@ -62,9 +62,9 @@ const CommonTypography = ({
 
   // Color variants
   const colorStyles = {
-    default: "text-gray-900",
+    default: "text-black",
     primary: "text-blue-600",
-    secondary: "text-gray-600",
+    secondary: "text-secondary-light-2",
     success: "text-green-600",
     warning: "text-orange-500",
     danger: "text-red-600",

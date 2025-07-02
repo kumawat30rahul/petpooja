@@ -9,31 +9,37 @@ import DynamicDataTable from "../../../../uiComponents/dataTable";
 const EmployeeData = () => {
   const workAllocatedTabs = [
     {
-      label: "Tasks 10",
+      label: "Tasks",
       value: "tasks",
+      count: 10,
     },
     {
-      label: "Issues 10",
+      label: "Issues",
       value: "issues",
+      count: 10,
     },
     {
-      label: "Forms 10",
+      label: "Forms",
       value: "forms",
+      count: 10,
     },
   ];
 
   const employeeProgressTabs = [
     {
-      label: "Tasks 10",
+      label: "Tasks",
       value: "tasks",
+      count: 10,
     },
     {
-      label: "Issues 10",
+      label: "Issues",
       value: "issues",
+      count: 10,
     },
     {
-      label: "Workflows 10",
+      label: "Workflows",
       value: "workflows",
+      count: 10,
     },
   ];
 
@@ -267,14 +273,17 @@ const EmployeeData = () => {
         label={"Work Allocated"}
         tabs={workAllocatedTabs}
         childrenHeight="300px"
+        selectLabel={"Select Employee"}
+        customSelectRequired={true}
+        linkRequired={false}
       >
         <div className="grid grid-cols-6 gap-4 p-4">
           {workAllocatedData.map((item, index) => (
             <div
               className={`col-span-6 sm:col-span-3 ${
                 index >= workAllocatedData.length - 2
-                  ? "lg:col-span-3"
-                  : "lg:col-span-2"
+                  ? "xl:col-span-3"
+                  : "xl:col-span-2"
               }`}
               key={item.value}
             >
@@ -287,6 +296,8 @@ const EmployeeData = () => {
         label={"Employee Wise Progress"}
         tabs={employeeProgressTabs}
         childrenHeight="300px"
+        selectLabel={"Select Employee"}
+        customSelectRequired={true}
       >
         <DynamicDataTable
           columns={employeeWorkProgressColumns}
