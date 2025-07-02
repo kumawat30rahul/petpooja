@@ -3,6 +3,7 @@ import CustomButton from "../../../uiComponents/button";
 import CustomDateInput from "../../../uiComponents/inputs/date";
 import CustomSelect from "../../../uiComponents/inputs/select";
 import { useMediaQuery } from "../../../../hooks/useMediaQueryHook";
+import { AIIcon } from "../../../icons/icons";
 
 const NavbarTools = () => {
   const isLgUp = useMediaQuery("lg");
@@ -13,7 +14,7 @@ const NavbarTools = () => {
       </CustomButton>
       <div className="flex items-center justify-end">
         <div className="mr-4 flex  items-center justify-start gap-4 lg:gap-0  lg:justify-end">
-          <CustomButton variant="ghost" leftIcon={<Sparkles />}>
+          <CustomButton variant="ghost" leftIcon={AIIcon()}>
             {isLgUp ? null : "Ask Ai"}
           </CustomButton>
           <CustomButton variant="ghost" leftIcon={<BellIcon />}>

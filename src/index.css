@@ -30,6 +30,7 @@
   --color-accent-purple-light: oklch(
     0.92 0.05 280
   ); /* Light purple background */
+  --color-light-red: oklch(0.9545 0.0162 64.67);
 
   /* Status Colors */
   --color-success: oklch(0.55 0.15 142); /* Green for completed items */
