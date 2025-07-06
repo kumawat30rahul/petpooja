@@ -145,7 +145,7 @@ const SideNavbar = ({ sideNavOpen, setSideNavOpen }) => {
         className="w-full mb-2 shadow-sm h-10"
         justify="start"
       >
-        {sideNavOpen ? "Chart" : null}
+        {sideNavOpen ? "Chat" : null}
       </CustomButton>
 
       <div
